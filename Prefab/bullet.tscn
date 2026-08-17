@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://vktu5fkof1c"]
+
+[ext_resource type="Script" uid="uid://qo3eumv65mxx" path="res://Script/bullet.gd" id="1_ay6v8"]
+[ext_resource type="PackedScene" uid="uid://biuiotpb84kbo" path="res://assets/static_objects/rock_type_1/Rock_1.gltf" id="1_rt864"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_fuhs2"]
+radius = 0.9237997
+
+[node name="bullet" type="Area3D" unique_id=667222957]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+script = ExtResource("1_ay6v8")
+
+[node name="Rock_12" parent="." unique_id=1534094670 instance=ExtResource("1_rt864")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1429882889]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14563942, 0)
+shape = SubResource("SphereShape3D_fuhs2")

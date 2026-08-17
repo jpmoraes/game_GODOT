@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://s1qb026aphbl"]
+
+[ext_resource type="Script" uid="uid://hysh88gwbj10" path="res://Script/enemy.gd" id="1_axcr2"]
+[ext_resource type="PackedScene" uid="uid://lr0leq002d62" path="res://assets/enemies/crab/Crab.gltf" id="2_50k3d"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fuhs2"]
+radius = 0.8979492
+height = 1.7958984
+
+[node name="enemy" type="CharacterBody3D" unique_id=1076585865]
+script = ExtResource("1_axcr2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1121463937]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.65567017, 0)
+shape = SubResource("CapsuleShape3D_fuhs2")
+
+[node name="Crab2" parent="." unique_id=404091190 instance=ExtResource("2_50k3d")]
+
+[node name="Skeleton3D" parent="Crab2/MonsterArmature" parent_id_path=PackedInt32Array(404091190, 896373334) index="0" unique_id=1904788229]
+bones/4/rotation = Quaternion(-4.4455963e-20, 3.5471498e-10, -0.0026400534, 0.9999966)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=156650170]
+
+[editable path="Crab2"]

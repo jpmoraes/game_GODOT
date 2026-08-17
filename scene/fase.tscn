@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://dq883lw2eephw"]
+
+[ext_resource type="Material" uid="uid://b155n1m2pygpy" path="res://Material/textura_gress.tres" id="1_6ofvy"]
+[ext_resource type="Material" path="res://assets/static_objects/tree_with_fruit/Green.material" id="1_i71ma"]
+[ext_resource type="Material" uid="uid://bquj4w2h6hdye" path="res://Material/sky.tres" id="2_i71ma"]
+[ext_resource type="PackedScene" uid="uid://n158q64qnsfp" path="res://Prefab/player.tscn" id="4_srm1t"]
+[ext_resource type="Script" uid="uid://dxw2hudk3r84r" path="res://Script/trees.gd" id="5_srm1t"]
+[ext_resource type="Script" uid="uid://cargfnyx3c2rt" path="res://Script/coin.gd" id="6_i3kgq"]
+[ext_resource type="PackedScene" uid="uid://bguosl66620eb" path="res://Prefab/hud.tscn" id="7_4lytp"]
+[ext_resource type="PackedScene" uid="uid://s1qb026aphbl" path="res://Prefab/enemy.tscn" id="8_0kgey"]
+
+[sub_resource type="Sky" id="Sky_srm1t"]
+sky_material = ExtResource("2_i71ma")
+
+[sub_resource type="Environment" id="Environment_t02iw"]
+background_mode = 2
+sky = SubResource("Sky_srm1t")
+
+[sub_resource type="NavigationMesh" id="NavigationMesh_fuhs2"]
+vertices = PackedVector3Array(-49.5, 0.6261444, -49.5, -49.5, 0.6261444, 49.5, 49.5, 0.6261444, 49.5, 49.5, 0.6261444, -49.5)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1)]
+
+[sub_resource type="QuadMesh" id="QuadMesh_fuhs2"]
+material = ExtResource("1_6ofvy")
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fuhs2"]
+size = Vector3(100, 2.5, 100)
+
+[node name="World" type="Node3D" unique_id=1278008727]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=198513074]
+transform = Transform3D(0.91844636, 0.22913206, -0.32242015, 0, 0.8151278, 0.57928115, 0.3955455, -0.5320387, 0.74865115, 0, 0, 0)
+light_color = Color(0.96127766, 0.988687, 0.90671486, 1)
+light_energy = 1.151
+light_indirect_energy = 0.0
+light_volumetric_fog_energy = 0.0
+light_specular = 0.0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=392177684]
+environment = SubResource("Environment_t02iw")
+
+[node name="Trees" type="Node3D" parent="." unique_id=1891872265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.085387, 1.9371405, 0)
+script = ExtResource("5_srm1t")
+
+[node name="Coin" type="Node3D" parent="." unique_id=2121582935]
+script = ExtResource("6_i3kgq")
+
+[node name="HUD" parent="." unique_id=1344469213 instance=ExtResource("7_4lytp")]
+
+[node name="enemy" parent="." unique_id=1076585865 instance=ExtResource("8_0kgey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.980679, 0, 0)
+
+[node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=170371538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.063669205, -1.9073486e-06, -0.049488068)
+navigation_mesh = SubResource("NavigationMesh_fuhs2")
+
+[node name="Piso" type="StaticBody3D" parent="NavigationRegion3D" unique_id=587549289]
+
+[node name="Textura" type="MeshInstance3D" parent="NavigationRegion3D/Piso" unique_id=1764489287]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0)
+material_override = ExtResource("1_i71ma")
+mesh = SubResource("QuadMesh_fuhs2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/Piso" unique_id=1137742703]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1238556, 0)
+shape = SubResource("BoxShape3D_fuhs2")
+
+[node name="Bunny" parent="." unique_id=1576206592 instance=ExtResource("4_srm1t")]

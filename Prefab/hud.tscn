@@ -1,0 +1,47 @@
+[gd_scene format=3 uid="uid://bguosl66620eb"]
+
+[ext_resource type="Script" uid="uid://chyt2wxnvw2b6" path="res://Script/hud.gd" id="1_f4jia"]
+
+[sub_resource type="FontVariation" id="FontVariation_mlghx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fuhs2"]
+font = SubResource("FontVariation_mlghx")
+font_size = 50
+shadow_size = 6
+shadow_color = Color(0.58431375, 0, 0, 0.654902)
+
+[sub_resource type="FontVariation" id="FontVariation_2dyke"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mlghx"]
+font = SubResource("FontVariation_2dyke")
+font_size = 50
+shadow_size = 3
+shadow_color = Color(0.77254903, 0, 0, 0.5372549)
+
+[node name="HUD" type="Control" unique_id=1344469213]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f4jia")
+
+[node name="PontuacaoLabel" type="Label" parent="." unique_id=1334650981]
+layout_mode = 0
+offset_left = 712.0
+offset_right = 867.0
+offset_bottom = 69.0
+text = "0"
+label_settings = SubResource("LabelSettings_fuhs2")
+horizontal_alignment = 1
+
+[node name="TempoLabel" type="Label" parent="." unique_id=1655486368]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 2.0
+offset_right = 163.0
+offset_bottom = 71.0
+text = "00:00"
+label_settings = SubResource("LabelSettings_mlghx")
+horizontal_alignment = 1
