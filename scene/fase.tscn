@@ -49,9 +49,6 @@ script = ExtResource("6_i3kgq")
 
 [node name="HUD" parent="." unique_id=1344469213 instance=ExtResource("7_4lytp")]
 
-[node name="enemy" parent="." unique_id=1076585865 instance=ExtResource("8_0kgey")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.980679, 0, 0)
-
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=170371538]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.063669205, -1.9073486e-06, -0.049488068)
 navigation_mesh = SubResource("NavigationMesh_fuhs2")
@@ -68,3 +65,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.1238556, 0)
 shape = SubResource("BoxShape3D_fuhs2")
 
 [node name="Bunny" parent="." unique_id=1576206592 instance=ExtResource("4_srm1t")]
+
+[node name="enemy" parent="." unique_id=1076585865 instance=ExtResource("8_0kgey")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12.043882)

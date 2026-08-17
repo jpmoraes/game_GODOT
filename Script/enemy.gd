@@ -6,6 +6,7 @@ extends CharacterBody3D
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var navigation_agent = $NavigationAgent3D
 @onready var animator = get_node("Crab2/AnimationPlayer") as AnimationPlayer
+var is_dead := false
 
 func _ready():
 	add_to_group("enemy")
@@ -23,8 +24,9 @@ func _physics_process(delta):
 	else:
 		velocity = Vector3.ZERO
 		move_and_slide()
-
-
+		
+				
+		
 func perseguir_player():
 
 	navigation_agent.target_position = player.global_position
@@ -45,3 +47,20 @@ func perseguir_player():
 		),
 		Vector3.UP
 	)
+
+func die():
+
+	if is_dead:
+		return
+
+	is_dead = true
+
+	velocity = Vector3.ZERO
+
+	print("ok")
+
+	animator.play("Death", 0.6)
+
+	await animator.animation_finished
+
+	queue_free()

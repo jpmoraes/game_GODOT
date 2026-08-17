@@ -4821,7 +4821,7 @@ bullet_scene = ExtResource("2_ohvtk")
 [node name="CharacterArmature" type="Node3D" parent="Character_Gun" unique_id=2124333828]
 
 [node name="MakeBullet" type="Node3D" parent="Character_Gun/CharacterArmature" unique_id=1268692700]
-transform = Transform3D(0.99948984, -0.009768038, 0.030414894, 0.0040922947, 0.98341, 0.18134996, -0.031681724, -0.18113285, 0.9829484, -0.6564822, 1.6212606, 1.8604667)
+transform = Transform3D(1.0000001, 0, 0, 0, 0.9926782, -0.120789036, 0, 0.12078899, 0.9926785, -0.6564822, 1.2081361, 1.8604667)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="Character_Gun/CharacterArmature" unique_id=1666777183]
 bones/0/name = "Root"
