@@ -4,7 +4,7 @@ extends Area3D
 
 var direction := Vector3.ZERO
 
-func _ready() -> void:
+func _ready():
 	body_entered.connect(_on_body_entered)
 	
 func _physics_process(delta):

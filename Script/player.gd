@@ -122,6 +122,7 @@ func shoot():
 		return
 
 	animator.play("Idle_Shoot")
+	
 
 	var bullet = bullet_scene.instantiate()
 

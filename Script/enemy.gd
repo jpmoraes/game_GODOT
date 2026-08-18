@@ -54,13 +54,8 @@ func die():
 		return
 
 	is_dead = true
-
 	velocity = Vector3.ZERO
-
-	print("ok")
-
 	animator.play("Death", 0.6)
-
 	await animator.animation_finished
 
 	queue_free()
